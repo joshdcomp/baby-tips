@@ -1,0 +1,70 @@
+<div id="_banner-partial">
+    <header class="banner swiss_grid--row">
+        <div class="banner--hgroup swiss_grid--column column-mq_lg-span_2 column-mq_m-span_2 column-mq_s--full">
+            <h1 class="banner--title">{{title}}</h1>
+            <h2 class="header--descrip">{{descrip}}</h2>
+        </div>
+
+        <div class="banner--tagline_container swiss_grid--column column-mq_lg-span_2 column-mq_lg--offset-1 column-mq_m-span_2 column-mq_s--full">
+            <h3 class="banner--tagline">{{tagline}}</h3>
+        </div>
+    </header>
+</div>
+
+<div id="_nav-partial">
+    <nav class="nav swiss_grid--row">
+        {{#lists}}
+        <ul class="nav--list swiss_grid--column column-mq_lg-span_1 column-mq_m-span_1 column-mq_s-full nav--list-{{modifier}}">
+            {{#links}}
+            <li class="nav--item">
+                <a href="{{href}}" class="nav--link">{{label}}</a>
+            </li>
+            {{/links}}
+        </ul>
+        {{/lists}}
+    </nav>
+</div>
+
+<div id="_instruction_card-partial">
+    <div class="card">
+        <h4 class="card--type">{{card.type}}</h4>
+        <h3 class="card--title">{{card.title}}</h3>
+        <img src="{{card.img.src}}" alt="{{card.img.alt}}" title="{{card.img.title}}" />
+    </div>
+</div>
+
+<div id="view_grid">
+    <div class="view view-grid">
+        <ul class="view--list swiss_grid--row">
+            {{#items}}
+            <li class="view--item swiss_grid--column column-mq_lg-span_1 column-mq_m-span_2 column-mq_s-span-1">
+                <a href="{{href}}" class="view--link">{{> _instruction_card}}</a>
+            </li>
+            {{/items}}
+        </ul>
+    </div>
+</div>
+
+<div id="view-single">
+    <nav class="card_nav">
+        <ul class="card_nav--list">
+            <li class="card_nav--item">
+                <a href="/view/oldest" class="card_nav--link nav--oldest">|&lt;</a>
+            </li>
+
+            <li class="card_nav--item">
+                <a href="/view/all" class="card_nav--link nav--view_all">View all</a>
+            </li>
+
+            <li class="card_nav--item">
+                <a href="/view/newest" class="card_nav--link nav--newest">&gt;|</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="card_ui">
+        <a href="/view/prev" class="card_ui--link card_ui--link-prev">&lt;</a>
+        <a href="/view/next" class="card_ui--link card_ui--link-next">&gt;</a>
+        <div class="card_ui--card">{{> _instruction_card}}</div>
+    </div>
+</div>
