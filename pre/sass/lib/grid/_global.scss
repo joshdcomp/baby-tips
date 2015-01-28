@@ -1,0 +1,24 @@
+// Global styles across all screen sizes, usually stuff like colors and typography
+.grid{
+    &--list{
+        list-style: no-list;
+        font-size: 0;
+
+        a:hover{
+            text-decoration: none;
+        }
+    }
+
+    &--column{
+        width: calc(#{$grid_column_width} - #{$grid_column_gutter});
+        margin-right: $grid_column_gutter;
+        margin-bottom: 40px;
+        vertical-align: top;
+        display: inline-block;
+        font-size: 1em;
+
+        &:nth-of-type(4n){
+            margin-right: 0;
+        }
+    }
+}
