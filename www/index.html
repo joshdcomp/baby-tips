@@ -15,7 +15,102 @@
 </head>
 
 <body>
-    <div class="container swiss_grid"></div>
+    <div class="baby_instructions app_container container swiss_grid"></div>
+    <div class="templates" style="display: none;">
+        <textarea id="partial-banner">
+            <header class="banner swiss_grid--row">
+                <div class="banner--hgroup swiss_grid--column column-mq_lg-span_2 column-mq_m-span_2 column-mq_s--full">
+                    <h1 class="banner--title">{{title}}</h1>
+                    <h2 class="header--descrip">{{descrip}}</h2>
+                </div>
+
+                <div class="banner--tagline_container swiss_grid--column column-mq_lg-span_2 column-mq_lg--offset-1 column-mq_m-span_2 column-mq_s--full">
+                    <h3 class="banner--tagline">{{tagline}}</h3>
+                </div>
+            </header>
+        </textarea>
+
+        <textarea id="partial-nav">
+            <nav class="nav swiss_grid--row">
+                {{#lists}}
+                <ul class="nav--list swiss_grid--column column-mq_lg-span_1 column-mq_m-span_1 column-mq_s-full nav--list-{{modifier}}">
+                    {{#links}}
+                    <li class="nav--item">
+                        <a href="{{href}}" class="nav--link">{{label}}</a>
+                    </li>
+                    {{/links}}
+                </ul>
+                {{/lists}}
+            </nav>
+        </textarea>
+
+        <textarea id="partial-tip_content">
+            <div class="card">
+                <h4 class="card--type label label-default">{{type}}</h4>
+                <h3 class="card--title">{{title}}</h3>
+                <h4 class="card--notes">{{img.title}}</h4>
+                <img src="/{{img.url}}" alt="{{img.alt}}" title="{{img.title}}" />
+            </div>
+        </textarea>
+
+        <textarea id="template-view_grid">
+            {{> _banner}}
+            {{> _nav}}
+            <div class="grid grid-swiss">
+                <ul class="grid--list grid-swiss--row">
+                    {{#content.items}}
+                    <li class="grid--item grid--column column-mq_lg-span_1 column-mq_m-span_2 column-mq_s-span-1">
+                        <a href="#tip/{{id}}" class="view--link">{{> _tip_content}}</a>
+                    </li>
+                    {{/content.items}}
+                </ul>
+            </div>
+        </textarea>
+
+        <textarea id="template-view_single">
+            {{> _banner}}
+            {{> _nav}}
+            <nav class="card_nav">
+                <ul class="card_nav--list">
+                    <li class="card_nav--item">
+                        <a href="/view/oldest" class="card_nav--link nav--oldest">|&lt;</a>
+                    </li>
+
+                    <li class="card_nav--item">
+                        <a href="/view/all" class="card_nav--link nav--view_all">View all</a>
+                    </li>
+
+                    <li class="card_nav--item">
+                        <a href="/view/newest" class="card_nav--link nav--newest">&gt;|</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="card_ui">
+                <a href="/view/prev" class="card_ui--link card_ui--link-prev">&lt;</a>
+                <a href="/view/next" class="card_ui--link card_ui--link-next">&gt;</a>
+                <div class="card_ui--card">{{> _instruction_card}}</div>
+            </div>
+        </textarea>
+
+        <textarea id="template-form_view">
+            {{> _banner}}
+            {{> _nav}}
+            <form id="email_form" name="email_form" class="form" method="post">
+                <caption>Register:</caption>
+                <div class="form--input_wrapper swiss_grid--row">
+                    <label for="{{name_id}}" class="form--input_label"></label>
+                    <input type="text" id="{{name_id}}" name="{{name_id}}" class="form--input form--input-text form--input-required" />
+                </div>
+
+                <div class="form swiss_grid--row">
+                    <label for="{{email}}" class="form--input_label"></label>
+                    <input type="text" id="{{email}}" name="{{email}}" class="form--input form--input-email form--input-required" />
+                </div>
+            </form>
+        </textarea>
+
+    </div>
 
 <!--=========================================================================
         Scripts
