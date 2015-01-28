@@ -11,13 +11,17 @@ module.exports = function(grunt) {
         //watch for stuff when we save
         watch: {
             js: {
-                files: ['pre/js/**/*.js', 'pre/js/*.js'],
+                files: ['pre/js/**/*.js'],
                 tasks: ['concat:js']
             },
             sass: {
-                files: ['pre/sass/**/*.scss', 'pre/sass/**.scss'],
+                files: ['pre/sass/**/*.scss', 'pre/sass/*.scss'],
                 tasks: ['sass:main']
-            }
+            },
+            tpl: {
+                files: ['pre/templates/**/*.html', 'pre/templates/*.html'],
+                tasks: ['concat:tpl'],
+            },
         },
 
         //set up concats
@@ -37,10 +41,23 @@ module.exports = function(grunt) {
             },
 
             js: {
-                src: ['pre/js/*.js', 'pre/js/**/*.js'],
+                src: [
+                    'pre/js/vend/*.js',
+                    'pre/js/app/router/*.js',
+                    'pre/js/app/models/*.js',
+                    'pre/js/app/collections/*.js',
+                    'pre/js/app/views/*.js',
+                    'pre/js/app/init.js'
+                ],
                 dest: 'www/js/scripts.js',
                 nonull: true
             },//js
+
+            tpl: {
+                src: ['pre/templates/*.html'],
+                dest: 'www/tpl/templates.html',
+                nonull: true
+            },
         },
         //set up sass
         sass: {
@@ -94,8 +111,10 @@ module.exports = function(grunt) {
     grunt.registerTask('js', ['concat:js', 'watch:js']);
     grunt.registerTask('js-w', ['concat:js']);
 
-    grunt.registerTask('sass', ['sass:main', 'watch:sass']);
-    grunt.registerTask('sass-w', ['sass:main']);
+    grunt.registerTask('css', ['sass:main', 'watch:sass']);
+    grunt.registerTask('css-w', ['sass:main']);
+
+    grunt.registerTask('tpl', ['concat:tpl', 'watch:tpl']);
 
     //Production
     grunt.registerTask('prod', ['concat', 'sass:prod', 'uglify']);
