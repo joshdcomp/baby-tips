@@ -1,0 +1,16 @@
+// Global styles across all screen sizes, usually stuff like colors and typography
+.card{
+    &--type{
+        font-size: 9px;
+    }
+
+    &--title{
+        margin-top: 10px;
+        color: $card_title_color;
+    }
+
+    &--notes{
+        color: $card_note_color;
+        font-size: 12px;
+    }
+}
