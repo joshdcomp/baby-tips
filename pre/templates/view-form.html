@@ -1,0 +1,16 @@
+<textarea id="form_view">
+    {{> _banner}}
+    {{> _nav}}
+    <form id="email_form" name="email_form" class="form" method="post">
+        <caption>Register:</caption>
+        <div class="form--input_wrapper swiss_grid--row">
+            <label for="{{name_id}}" class="form--input_label"></label>
+            <input type="text" id="{{name_id}}" name="{{name_id}}" class="form--input form--input-text form--input-required" />
+        </div>
+
+        <div class="form swiss_grid--row">
+            <label for="{{email}}" class="form--input_label"></label>
+            <input type="text" id="{{email}}" name="{{email}}" class="form--input form--input-email form--input-required" />
+        </div>
+    </form>
+</textarea>

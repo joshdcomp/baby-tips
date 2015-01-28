@@ -1,0 +1,13 @@
+<textarea id="_nav">
+    <nav class="nav swiss_grid--row">
+        {{#lists}}
+        <ul class="nav--list swiss_grid--column column-mq_lg-span_1 column-mq_m-span_1 column-mq_s-full nav--list-{{modifier}}">
+            {{#links}}
+            <li class="nav--item">
+                <a href="{{href}}" class="nav--link">{{label}}</a>
+            </li>
+            {{/links}}
+        </ul>
+        {{/lists}}
+    </nav>
+</textarea>

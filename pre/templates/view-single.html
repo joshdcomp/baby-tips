@@ -1,0 +1,25 @@
+<textarea id="view_single">
+    {{> _banner}}
+    {{> _nav}}
+    <nav class="card_nav">
+        <ul class="card_nav--list">
+            <li class="card_nav--item">
+                <a href="/view/oldest" class="card_nav--link nav--oldest">|&lt;</a>
+            </li>
+
+            <li class="card_nav--item">
+                <a href="/view/all" class="card_nav--link nav--view_all">View all</a>
+            </li>
+
+            <li class="card_nav--item">
+                <a href="/view/newest" class="card_nav--link nav--newest">&gt;|</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="card_ui">
+        <a href="/view/prev" class="card_ui--link card_ui--link-prev">&lt;</a>
+        <a href="/view/next" class="card_ui--link card_ui--link-next">&gt;</a>
+        <div class="card_ui--card">{{> _instruction_card}}</div>
+    </div>
+</textarea>
